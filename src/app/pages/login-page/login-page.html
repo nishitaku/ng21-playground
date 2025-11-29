@@ -1,0 +1,40 @@
+<form (submit)="onSubmit($event)">
+  <div>
+    <label
+      >Email:
+      <input type="email" [field]="loginForm.email" />
+    </label>
+    @if(loginForm.email().invalid()) {
+    <ul class="error-list">
+      @for(error of loginForm.email().errors(); track error) {
+      <li>{{ error.message }}</li>
+      }
+    </ul>
+    }
+  </div>
+
+  <div>
+    <label
+      >Password:
+      <input type="password" [field]="loginForm.password" />
+    </label>
+    @if(loginForm.password().invalid()) {
+    <ul class="error-list">
+      @for(error of loginForm.password().errors(); track error) {
+      <li>{{ error.message }}</li>
+      }
+    </ul>
+    }
+  </div>
+
+  <button
+    type="submit"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 disabled:bg-gray-100 disabled:cursor-pointer-none"
+    [disabled]="loginForm().invalid()"
+  >
+    Log In
+  </button>
+</form>
+
+<p>Hello {{ loginForm.email().value() }}!</p>
+<p>Password length: {{ loginForm.password().value().length }}</p>
