@@ -1,0 +1,50 @@
+<div class="p-4">
+  <h1 class="text-3xl">動的な配列フォーム</h1>
+  <div class="p-4 flex flex-col gap-4">
+    <button
+      (click)="addUser()"
+      class="h-[42px] w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    >
+      ユーザー追加
+    </button>
+    <form class="flex flex-col gap-4" (submit)="onSubmit($event)">
+      @for(user of usersForm; track user) {
+      <div class="p-4 flex flex-col gap-1 bg-gray-50 border border-solid border-gray-200 rounded">
+        <app-user [field]="user" (delete)="deleteUser($index)" />
+
+        <!-- <div class="flex flex-col">
+          <p>dirty: {{ user().dirty() }}</p>
+          <p>name.dirty: {{ user.name().dirty() }}</p>
+          <p>touched: {{ user().touched() }}</p>
+          <p>name.touched: {{ user.name().touched() }}</p>
+          <p>invalid: {{ user().invalid() }}</p>
+          <p>name.invalid: {{ user.name().invalid() }}</p>
+          <p>disabled: {{ user().dirty() }}</p>
+          <p>age.disabled: {{ user.age().disabled() }}</p>
+          <p>errors: {{ user().errors() }}</p>
+          <p>name.errors: {{ user.name().errors() | json }}</p>
+        </div> -->
+
+        <ul class="text-red-500">
+          @if(user.name().invalid()) { @for(error of user.name().errors(); track error) {
+          <li>{{ error.message }}</li>
+          } } @if(user.age().invalid()) { @for(error of user.age().errors(); track error) {
+          <li>{{ error.message }}</li>
+          } }
+        </ul>
+      </div>
+      }
+      <button
+        type="submit"
+        [disabled]="usersForm().invalid()"
+        class="h-[42px] w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:bg-gray-400 disabled:cursor-pointer-none"
+      >
+        送信
+      </button>
+    </form>
+
+    <div>
+      <pre>{{ usersModel() | json }}</pre>
+    </div>
+  </div>
+</div>

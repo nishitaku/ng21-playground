@@ -1,0 +1,33 @@
+<form class="flex flex-row gap-4 items-end">
+  <div class="flex flex-col gap-1">
+    <label class="flex flex-col gap-1 font-bold"
+      >名前:
+      <input
+        class="p-2 border border-solid border-[#ccc] rounded"
+        name="name"
+        [ngModel]="value().name"
+        (ngModelChange)="updateName($event)"
+      />
+    </label>
+  </div>
+
+  <div class="flex flex-col gap-1">
+    <label class="flex flex-col gap-1 font-bold"
+      >年齢:
+      <input
+        type="number"
+        class="p-2 border border-solid border-[#ccc] rounded"
+        name="age"
+        [ngModel]="value().age"
+        (ngModelChange)="updateAge($event)"
+      />
+    </label>
+  </div>
+
+  <button
+    (click)="delete.emit()"
+    class="h-[42px] bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+  >
+    削除
+  </button>
+</form>
