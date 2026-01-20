@@ -2,7 +2,7 @@
   <div>
     <label
       >Email:
-      <input type="email" [field]="loginForm.email" />
+      <input type="email" [formField]="loginForm.email" />
     </label>
     @if(loginForm.email().invalid()) {
     <ul class="error-list">
@@ -16,7 +16,7 @@
   <div>
     <label
       >Password:
-      <input type="password" [field]="loginForm.password" />
+      <input type="password" [formField]="loginForm.password" />
     </label>
     @if(loginForm.password().invalid()) {
     <ul class="error-list">

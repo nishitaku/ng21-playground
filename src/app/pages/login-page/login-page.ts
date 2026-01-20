@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { form, required, email, Field, debounce } from '@angular/forms/signals';
+import { debounce, email, form, FormField, required } from '@angular/forms/signals';
 
 interface LoginData {
   email: string;
@@ -8,7 +8,7 @@ interface LoginData {
 
 @Component({
   selector: 'app-login-page',
-  imports: [Field],
+  imports: [FormField],
   templateUrl: './login-page.html',
   styleUrl: './login-page.css',
 })

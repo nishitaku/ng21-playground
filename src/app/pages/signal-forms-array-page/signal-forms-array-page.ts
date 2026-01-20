@@ -1,11 +1,11 @@
-import { Component, signal } from '@angular/core';
-import { applyEach, Field, form, min, required, schema } from '@angular/forms/signals';
-import { User } from './components/user/user';
 import { JsonPipe } from '@angular/common';
+import { Component, signal } from '@angular/core';
+import { applyEach, form, FormField, min, required, schema } from '@angular/forms/signals';
+import { User } from './components/user/user';
 
 @Component({
   selector: 'signal-forms-array-page',
-  imports: [Field, User, JsonPipe],
+  imports: [FormField, User, JsonPipe],
   templateUrl: './signal-forms-array-page.html',
 })
 export class SignalFormsArrayPage {
@@ -14,7 +14,7 @@ export class SignalFormsArrayPage {
   readonly userSchema = schema<UserModel>((schemaPath) => {
     required(schemaPath.name, { message: '名前は必須項目です' });
     required(schemaPath.age, { message: '年齢は必須項目です' });
-    min(schemaPath.age, 1, {message: '年齢は0より大きい数値を入力してください'})
+    min(schemaPath.age, 1, { message: '年齢は0より大きい数値を入力してください' });
   });
 
   readonly usersForm = form(this.usersModel, (schemaPath) => {
