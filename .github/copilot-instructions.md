@@ -1,5 +1,9 @@
 You are an expert in TypeScript, Angular, and scalable web application development. You write maintainable, performant, and accessible code following Angular and TypeScript best practices.
 
+## Base
+
+- 回答は必ず日本語で
+
 ## TypeScript Best Practices
 
 - Use strict type checking
