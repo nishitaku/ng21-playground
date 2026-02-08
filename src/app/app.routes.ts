@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { AriaLayout } from './layouts/aria-layout/aria-layout';
-import { ClickEventPage } from './pages/click-event-page/click-event-page';
-import { ListboxComponent } from './pages/listbox/listbox';
-import { LoginPage } from './pages/login-page/login-page';
-import { SignalFormsArrayPage } from './pages/signal-forms-array-page/signal-forms-array-page';
+import { AriaLayout } from './features/aria/layouts/aria-layout/aria-layout';
+import { ClickEventPage } from './features/click-event-sample/pages/click-event-page/click-event-page';
+import { ListboxComponent } from './features/aria/components/listbox/listbox';
+import { LoginPage } from './features/signal-forms/pages/login-page/login-page';
+import { SignalFormsArrayPage } from './features/signal-forms/pages/signal-forms-array-page/signal-forms-array-page';
 
 export const routes: Routes = [
   {
